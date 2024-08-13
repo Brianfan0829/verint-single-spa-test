@@ -1,0 +1,21 @@
+version: "4"
+services:
+  utils:
+    build: ./utils
+    ports:
+      - 8500:8500
+  root-config:
+    build: ./root-config
+    ports:
+      - 9000:9000
+    depends_on:
+      - app1
+      - app2
+  app1:
+    build: ./app1
+    ports:
+      - 8501:8501
+  app2:
+    build: ./app2
+    ports:
+      - 8502:8502
